@@ -1,20 +1,21 @@
 package com.jatinc.traderino;
 
+import java.io.FileReader;
 import java.io.IOException;
-import java.net.URL;
+import java.io.File;
 import java.util.Properties;
 
 public final class Config {
     private static final Properties PROPERTIES;
-    private static final String PROP_FILE = "app.config";
+    private static final File PROP_FILE = new File("app.config");
 
     private Config(){}
 
     static {
         PROPERTIES = new Properties();
-        final URL props = ClassLoader.getSystemResource(PROP_FILE);
         try{
-            PROPERTIES.load(props.openStream());
+            FileReader reader = new FileReader(PROP_FILE);
+            PROPERTIES.load(reader);
         }catch(IOException ex) {
             ex.printStackTrace();
         }

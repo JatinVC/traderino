@@ -37,4 +37,5 @@ public class THttpClient {
     }
 
     // TODO create a post helper
+    // TODO create a helper to get the stock data
 }
